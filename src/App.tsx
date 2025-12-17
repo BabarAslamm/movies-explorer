@@ -1,17 +1,15 @@
-import { useState } from 'react'
 import './App.css'
+import Navbar from './components/Navbar'
 
 function App() {
  
 
   return (
+    
     <div>
-        <nav className="navbar">
-            <a className="logo" href="/" data-discover="true">
-              <h2>🎬 Movie Explorer</h2>
-            </a>
-            <a href="/" data-discover="true">Home</a>
-        </nav>
+        
+        <Navbar />
+
         <div className="home">
           <form>
             <input className="searchInput" placeholder="Search for a movie..." />
