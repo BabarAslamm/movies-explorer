@@ -1,34 +1,45 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+        <nav className="navbar">
+            <a className="logo" href="/" data-discover="true">
+              <h2>🎬 Movie Explorer</h2>
+            </a>
+            <a href="/" data-discover="true">Home</a>
+        </nav>
+        <div className="home">
+          <form>
+            <input className="searchInput" placeholder="Search for a movie..." />
+            <button type="submit">Search 🔎</button>
+          </form>
+          <div className="movie-list">
+            <div className="movie-card">
+              <img alt="The Avengers" src="https://m.media-amazon.com/images/M/MV5BNGE0YTVjNzUtNzJjOS00NGNlLTgxMzctZTY4YTE1Y2Y1ZTU4XkEyXkFqcGc@._V1_SX300.jpg" />
+              <h3>The Avengers</h3>
+              <p>2012</p>
+              <a href="movie-detail.html" data-discover="true">Details</a>
+            </div>
+            <div className="movie-card">
+              <img alt="The Avengers" src="https://m.media-amazon.com/images/M/MV5BNGE0YTVjNzUtNzJjOS00NGNlLTgxMzctZTY4YTE1Y2Y1ZTU4XkEyXkFqcGc@._V1_SX300.jpg" />
+              <h3>The Avengers</h3>
+              <p>2012</p>
+              <a href="movie-detail.html" data-discover="true">Details</a>
+            </div>
+            <div className="movie-card">
+              <img alt="The Avengers" src="https://m.media-amazon.com/images/M/MV5BNGE0YTVjNzUtNzJjOS00NGNlLTgxMzctZTY4YTE1Y2Y1ZTU4XkEyXkFqcGc@._V1_SX300.jpg" />
+              <h3>The Avengers</h3>
+              <p>2012</p>
+              <a href="movie-detail.html" data-discover="true">Details</a>
+            </div>
+          </div>
+        </div>	
+
+    </div>
   )
 }
 
