@@ -1,12 +1,14 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-function MovieCard() {
+function MovieCard({movie}) {
   return (
         <div className="movie-card">
-            <img alt="The Avengers" src="https://m.media-amazon.com/images/M/MV5BNGE0YTVjNzUtNzJjOS00NGNlLTgxMzctZTY4YTE1Y2Y1ZTU4XkEyXkFqcGc@._V1_SX300.jpg" />
-            <h3>The Avengers</h3>
-            <p>2012</p>
-            <a href="movie-detail.html" data-discover="true">Details</a>
+            <img alt={movie.Title} src={movie.Poster} />
+            <h3>{movie.Title}</h3>
+            <p>{movie.Year}</p>
+            <Link to={`movie/${movie.imdbID}`}>Details</Link>
+            
         </div>
     )
 }

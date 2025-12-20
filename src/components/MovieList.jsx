@@ -1,10 +1,14 @@
 import React from 'react'
 import MovieCard from './MovieCard'
 
-function MovieList() {
+function MovieList({ movies }) {
+
   return (
         <div className="movie-list">
-            <MovieCard />
+            {movies.map( (movie) => (
+                <MovieCard key={movie.imdbID} movie={movie} />
+            ))}
+            
         </div>
     )
 }
