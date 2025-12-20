@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import MovieList from '../components/MovieList'
 
 
@@ -6,10 +6,11 @@ import MovieList from '../components/MovieList'
 function Home() {
 
    const [movies, setMovies] = useState([])
+   const searchRef = useRef(null)
 
     const fetchMovies = async (query) => {
 
-       try {
+      try {
 
         const response = await fetch(`http://www.omdbapi.com/?apikey=6959523f&s=${query}`)
 
@@ -17,15 +18,19 @@ function Home() {
         
         setMovies(data.Search)
         
-       } catch (error) {
+      } catch (error) {
 
         console.error(error)
 
-       }
-    
-    
+      }
 
-  }
+    }
+
+    const handleSubmit = (e) => {
+      e.preventDefault()
+      const query = searchRef.current.value // ✅ get value
+      if(query) fetchMovies(query)
+    }
 
   useEffect(() => {
     fetchMovies('Mission Impossible')
@@ -38,8 +43,8 @@ function Home() {
 
   return (
     <div className="home">
-          <form>
-            <input className="searchInput" placeholder="Search for a movie..." />
+          <form onSubmit={handleSubmit}>
+            <input ref={searchRef} className="searchInput" placeholder="Search for a movie..." />
             <button type="submit">Search 🔎</button>
           </form>
           <MovieList movies={movies} />
