@@ -33,7 +33,7 @@ function Home() {
     }
 
   useEffect(() => {
-    fetchMovies('Mission Impossible')
+    fetchMovies('man')
   }, [])
 
   useEffect(() => {
