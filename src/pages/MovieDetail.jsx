@@ -2,12 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 function MovieDetail() {
-    const id = useParams(['id'])
+    const { id } = useParams()
     const [movie, setMovie] = useState([])
 
     const movieDetails = async (id) => {
-
-        console.log(id)
         
         const response = await fetch(`http://www.omdbapi.com/?apikey=6959523f&i=${id}`)
         const data = await response.json()
@@ -18,10 +16,10 @@ function MovieDetail() {
     }
 
     useEffect(() => {
-        movieDetails(id.id);
+        movieDetails(id);
     },['id'])
 
-    if(!movie) return <p>Loading.....</p>
+    if(!movie) return <p>Loading...</p>
 
   return (
     <div className="movie-detail">
