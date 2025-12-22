@@ -9,7 +9,7 @@ function MovieDetail() {
 
         console.log(id)
         
-        const response = await fetch(`http://www.omdbapi.com/?apikey=6959523f&i=${id.id}`)
+        const response = await fetch(`http://www.omdbapi.com/?apikey=6959523f&i=${id}`)
         const data = await response.json()
         setMovie(data)
 
@@ -18,7 +18,7 @@ function MovieDetail() {
     }
 
     useEffect(() => {
-        movieDetails(id);
+        movieDetails(id.id);
     },['id'])
 
     if(!movie) return <p>Loading.....</p>
